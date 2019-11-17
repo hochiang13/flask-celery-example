@@ -19,8 +19,8 @@ app.config['MAIL_PASSWORD'] = "123456"
 app.config['MAIL_DEFAULT_SENDER'] = 'flask@example.com'
 
 # Celery configuration
-app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+app.config['CELERY_BROKER_URL'] = 'redis://172.17.0.1:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://172.17.0.1:6379/0'
 
 
 # Initialize extensions
