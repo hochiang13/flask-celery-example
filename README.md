@@ -24,8 +24,26 @@ Quick Setup
 
 For details on how this all works, see my article [Using Celery with Flask](http://blog.miguelgrinberg.com/post/using-celery-with-flask).
 
+Running with Docker containers
+------------------------------
+
+1. Run redis container
+```
 docker run --name redis -d -p 6379:6379 redis:alpine
+```
 
+2. Build docker image celery
+```
 docker build -t celery:latest .
+```
 
-missing template
+3. Run Flask app container
+```
+docker run -d --name celery -p 8080:8080 celery:latest
+```
+
+3. Run celery worker container
+```
+docker run -d --name celery-worker celery:latest celery worker -A app.celery --loglevel=info
+```
+
